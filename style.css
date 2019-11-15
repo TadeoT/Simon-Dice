@@ -1,0 +1,53 @@
+.contenedor{    
+    height: 400px;
+    width: 400px;
+    margin-top: 50px;  
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    border-width: 3px;
+    border-color:white;
+    border-style: solid;
+}
+.cuadrado{
+    
+    width: 200px;
+    height: 200px;
+    float: left;
+}
+.cuadradoSeleccionado{
+    
+    width: 200px;
+    height: 200px;
+    float: left;
+    border-color: black;
+    border-style: solid;
+}
+#titulo{
+    margin-left: 150px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#comenzar{
+    margin-left: 200px;
+    background-color: yellowgreen;
+    border-radius: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+#uno{
+    background-color: blue;
+}
+#dos{
+    background-color: darkred;
+}
+#tres{
+    background-color: green;
+}
+#cuatro{
+    background-color: yellow;
+}
+
+.oculto{
+    display: none;
+}
