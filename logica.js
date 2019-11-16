@@ -1,11 +1,13 @@
 
 let arrayNumeros = [];
-let $botonComenzar = document.querySelector("#comenzar");
-
+let jugadas = 0;
+const $botonComenzar = document.querySelector("#comenzar");
+const $jugadas = document.querySelector("#jugadas");
 
 $botonComenzar.onclick = function (){
     document.querySelector("#contenedor").className="contenedor";
     arrayNumeros = []
+    jugadas = 0;
     turno();
 
 }
@@ -22,7 +24,8 @@ function turno(){
     }
     
     turnos =0;
-
+    $jugadas.value = jugadas;
+    jugadas++;
 
 }
 
@@ -46,24 +49,25 @@ function comparar(b){
     }
 }
 
+const Botones = {
+    uno: function(){comparar('#uno')},
+    dos: function(){comparar('#dos')},
+    tres: function(){comparar('#tres')},
+    cuatro: function(){comparar('#cuatro')}
+}
 
-
-
+function sonidoBoton(id){
+    
+    document.querySelector("#audio-"+id).play();
+}
 function clickJugador(b){
-        switch(b.id) {
-            case 'uno':
-                    comparar("#uno");
-              break;
-            case 'dos':
-                    comparar("#dos");
-              break;
-            case 'tres':
-                    comparar("#tres");
-              break;
-            case 'cuatro':  
-                    comparar("#cuatro");
-              break;
-          }        
+    let id = b.id;
+    let boton = Object.create(Botones);
+    boton[id]();
+    sonidoBoton(id);
+
+
+
   
 }
 
@@ -73,13 +77,15 @@ function clickJugador(b){
 
 
 function finJuego(){
-    alert("Perdiste, FIN DEL JUEGO");
+    alert("FIN DEL JUEGO "+ "Tu score fue : "+ --jugadas +" Ronda/s");
     document.querySelector("#contenedor").className="oculto";
+    throw new Error("Perdiste")
 }
 
 function marcarCuadrado(id){
     SeleccionarCuadrado(id);
     setTimeout(function (){deSeleccionarCuadrado(id)},500);
+    sonidoBoton((id.substring(1)));
 }
 
 function deSeleccionarCuadrado(id){

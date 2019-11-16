@@ -10,13 +10,18 @@
 <body>
     <h1 id="titulo">Simon Dice</h1>
     <div id="contenedor" class="contenedor" >
-        <button onclick=clickJugador(this) class="cuadrado" id="uno"></button>
+        <button onclick=clickJugador(this) onclick=sonidoBoton(this.id) class="cuadrado" id="uno"></button>
+        <audio id="audio-uno" src="sounds/bleep.wav"></audio>
         <button onclick=clickJugador(this) class="cuadrado" id="dos"></button>
+        <audio id="audio-dos" src="sounds/boip.wav"></audio>
         <button onclick=clickJugador(this) class="cuadrado" id="tres"></button>
+        <audio id="audio-tres" src="sounds/tiniest.wav"></audio>
         <button onclick=clickJugador(this) class="cuadrado" id="cuatro"></button>
+        <audio id="audio-cuatro" src="sounds/tinynote.wav"></audio>
     </div>
         <button id="comenzar">Comenzar</button>
-
+        <label >Jugadas</label>
+        <input type="text" value="" id="jugadas" disabled="true">
 
     <script src="logica.js"></script>
 </body>
